@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CallCenter xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <adapterUrl>/apex/knowlarity_cti__bootstrap</adapterUrl>
+    <customSettings>{&quot;reqSoftphoneHeight&quot;:&quot;500&quot;,&quot;reqUseApi&quot;:&quot;true&quot;,&quot;reqSoftphoneWidth&quot;:&quot;500&quot;,&quot;reqSalesforceCompatibilityMode&quot;:&quot;Classic_and_Lightning&quot;}</customSettings>
+    <displayName>Knowlarity Call Center Adapter Open CTI</displayName>
+    <displayNameLabel xsi:nil="true"/>
+    <internalNameLabel xsi:nil="true"/>
+</CallCenter>

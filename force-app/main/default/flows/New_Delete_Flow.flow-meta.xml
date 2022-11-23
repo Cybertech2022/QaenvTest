@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <assignments>
+        <description>This will fetch account id from topic assignment records</description>
+        <name>Account_from_topic_assignment</name>
+        <label>Account from topic assignment</label>
+        <locationX>755</locationX>
+        <locationY>71</locationY>
+        <assignmentItems>
+            <assignToReference>AccountTA</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.EntityId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TopicIDfromTA</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.TopicId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Contacts_from_TA_account</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>This will assign the Contact id value from the loop record</description>
+        <name>Contact_ID_from_Loop</name>
+        <label>Contact ID from Loop</label>
+        <locationX>917</locationX>
+        <locationY>417</locationY>
+        <assignmentItems>
+            <assignToReference>ContactIDTA</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_On_Contacts.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>TA_From_Loop_Contact</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Save topic object type to a variable</description>
+        <name>Topic_entity_type</name>
+        <label>Topic entity type</label>
+        <locationX>403</locationX>
+        <locationY>80</locationY>
+        <assignmentItems>
+            <assignToReference>TopicObject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.EntityType</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Account_Decision</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>When a flow executes a Decision element, it evaluates each decision outcome order.</description>
+        <name>Account_Decision</name>
+        <label>Account Decision</label>
+        <locationX>519</locationX>
+        <locationY>73</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Topic_Account_Decision</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>TopicObject</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Account</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Account_from_topic_assignment</targetReference>
+            </connector>
+            <label>Topic Account Decision</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Check if Topic Assignment record exist</description>
+        <name>Check_TA</name>
+        <label>Check TA</label>
+        <locationX>471</locationX>
+        <locationY>427</locationY>
+        <defaultConnector>
+            <targetReference>Delete_Records</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>TA Exist</defaultConnectorLabel>
+        <rules>
+            <name>TA_not_Exist</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetRecordTAId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_On_Contacts</targetReference>
+            </connector>
+            <label>TA not Exist</label>
+        </rules>
+    </decisions>
+    <description>This flow will delete Topics from account and contact.</description>
+    <environments>Default</environments>
+    <interviewLabel>New Delete Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Topic Delete from Account</label>
+    <loops>
+        <description>This will run the loop on Contacts fetched from TA Account</description>
+        <name>Loop_On_Contacts</name>
+        <label>Loop On Contacts</label>
+        <locationX>976</locationX>
+        <locationY>212</locationY>
+        <collectionReference>ContactsfromTAaccount</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Contact_ID_from_Loop</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordDeletes>
+        <description>Delete Topic assignment record if its exist.</description>
+        <name>Delete_Records</name>
+        <label>Delete Records</label>
+        <locationX>436</locationX>
+        <locationY>211</locationY>
+        <connector>
+            <targetReference>Loop_On_Contacts</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>EntityId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ContactIDTA</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>TopicId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TopicIDfromTA</elementReference>
+            </value>
+        </filters>
+        <object>TopicAssignment</object>
+    </recordDeletes>
+    <recordLookups>
+        <description>this will fetch from contacts from topic assignment entity = Account</description>
+        <name>Contacts_from_TA_account</name>
+        <label>Contacts from TA account</label>
+        <locationX>936</locationX>
+        <locationY>61</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_On_Contacts</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>AccountTA</elementReference>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <outputReference>ContactsfromTAaccount</outputReference>
+        <queriedFields>Id</queriedFields>
+    </recordLookups>
+    <recordLookups>
+        <description>This will fetch Topic Assignment record belongs to current Contact in the loop with the same Topic</description>
+        <name>TA_From_Loop_Contact</name>
+        <label>TA From Loop Contact</label>
+        <locationX>787</locationX>
+        <locationY>434</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_TA</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>EntityId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ContactIDTA</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>TopicId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TopicIDfromTA</elementReference>
+            </value>
+        </filters>
+        <object>TopicAssignment</object>
+        <outputAssignments>
+            <assignToReference>GetRecordTAId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <start>
+        <locationX>30</locationX>
+        <locationY>29</locationY>
+        <connector>
+            <targetReference>Topic_entity_type</targetReference>
+        </connector>
+        <object>TopicAssignment</object>
+        <recordTriggerType>Delete</recordTriggerType>
+        <triggerType>RecordBeforeDelete</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>AccountTA</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ContactIDTA</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ContactsfromTAaccount</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <description>STORE TOPIC ASSIGNMENT ID FROM GET RECORD</description>
+        <name>GetRecordTAId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>TopicIDfromTA</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Topic Object</description>
+        <name>TopicObject</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

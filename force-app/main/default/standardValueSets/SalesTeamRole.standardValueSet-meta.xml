@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Account Executive</fullName>
+        <default>false</default>
+        <label>Account Executive</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Account Manager</fullName>
+        <default>false</default>
+        <label>Account Manager</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Solution Engineer</fullName>
+        <default>false</default>
+        <label>Solution Engineer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Alliance Leader</fullName>
+        <default>false</default>
+        <label>Alliance Leader</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Engagement Manager</fullName>
+        <default>false</default>
+        <label>Engagement Manager</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Marketing Manager</fullName>
+        <default>false</default>
+        <label>Marketing Manager</label>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,3 @@
+<apex:page >
+<flow:interview name="Inbound_New_Guest_Appointment_Copy"/>
+</apex:page>

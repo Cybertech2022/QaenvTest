@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Support__c</fullName>
+    <externalId>false</externalId>
+    <label>Sales Support</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Arun TP</fullName>
+                <default>false</default>
+                <label>Arun TP</label>
+            </value>
+            <value>
+                <fullName>Bipin Tavkar</fullName>
+                <default>false</default>
+                <label>Bipin Tavkar</label>
+            </value>
+            <value>
+                <fullName>Sagar Nair</fullName>
+                <default>false</default>
+                <label>Sagar Nair</label>
+            </value>
+            <value>
+                <fullName>Shikha Sharma</fullName>
+                <default>false</default>
+                <label>Shikha Sharma</label>
+            </value>
+            <value>
+                <fullName>Swami Ramamurthi</fullName>
+                <default>false</default>
+                <label>Swami Ramamurthi</label>
+            </value>
+            <value>
+                <fullName>Beau Bradley</fullName>
+                <default>false</default>
+                <label>Beau Bradley</label>
+            </value>
+            <value>
+                <fullName>Nicholas Poorte</fullName>
+                <default>false</default>
+                <label>Nicholas Poorte</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

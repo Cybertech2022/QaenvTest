@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>None</fullName>
+        <default>false</default>
+        <label>None</label>
+    </standardValue>
+    <standardValue>
+        <fullName>GeoShield</fullName>
+        <default>false</default>
+        <label>GeoShield</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Spatilitics Health</fullName>
+        <default>false</default>
+        <label>Spatilitics Health</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Spatialitics Utilities</fullName>
+        <default>false</default>
+        <label>Spatialitics Utilities</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Software as a Service</fullName>
+        <default>false</default>
+        <label>Software as a Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Professional Services</fullName>
+        <default>false</default>
+        <label>Professional Services</label>
+    </standardValue>
+</StandardValueSet>

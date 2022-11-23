@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>SAP Business Suite</fullName>
+        <default>false</default>
+        <label>SAP S/4HANA Business Suite and Cloud Move</label>
+    </customValue>
+    <customValue>
+        <fullName>SAP BTP (Business Technology Platform), HANA, SCP</fullName>
+        <default>false</default>
+        <label>SAP BTP (Business Technology Platform), HANA, SCP</label>
+    </customValue>
+    <customValue>
+        <fullName>SAP Analytics</fullName>
+        <default>false</default>
+        <label>SAP Analytics</label>
+    </customValue>
+    <customValue>
+        <fullName>Managed ArcGIS Cloud Services (MACS)</fullName>
+        <default>false</default>
+        <label>Managed ArcGIS Cloud Services (MACS)</label>
+    </customValue>
+    <customValue>
+        <fullName>DevSecOps (Custom Apps, CyberSupport, AMO)</fullName>
+        <default>false</default>
+        <label>DevSecOps (Custom Apps, CyberSupport, AMO)</label>
+    </customValue>
+    <customValue>
+        <fullName>Geospatial Projects</fullName>
+        <default>false</default>
+        <label>All Geospatial Projects</label>
+    </customValue>
+    <customValue>
+        <fullName>SalesForce.com</fullName>
+        <default>false</default>
+        <label>SalesForce</label>
+    </customValue>
+    <customValue>
+        <fullName>GeoShield</fullName>
+        <default>false</default>
+        <label>GeoShield</label>
+    </customValue>
+    <customValue>
+        <fullName>Spatialitics Health</fullName>
+        <default>false</default>
+        <label>Spatialitics Health</label>
+    </customValue>
+    <customValue>
+        <fullName>Spatialitics Utilities</fullName>
+        <default>false</default>
+        <label>Spatialitics Utilities</label>
+    </customValue>
+    <customValue>
+        <fullName>Infra</fullName>
+        <default>false</default>
+        <label>IT Infrastructure</label>
+    </customValue>
+    <customValue>
+        <fullName>Risk Center</fullName>
+        <default>false</default>
+        <label>Risk Center</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <customValue>
+        <fullName>SAP</fullName>
+        <default>false</default>
+        <label>SAP</label>
+    </customValue>
+    <customValue>
+        <fullName>Cloud</fullName>
+        <default>false</default>
+        <label>Cloud</label>
+    </customValue>
+    <customValue>
+        <fullName>DevSecOps</fullName>
+        <default>false</default>
+        <label>DevSecOps</label>
+    </customValue>
+    <customValue>
+        <fullName>Geospatial Solution</fullName>
+        <default>false</default>
+        <label>Geospatial Solution</label>
+    </customValue>
+    <customValue>
+        <fullName>Unity</fullName>
+        <default>false</default>
+        <label>Unity</label>
+    </customValue>
+    <customValue>
+        <fullName>GeoCoder</fullName>
+        <default>false</default>
+        <label>GeoCoder</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise GIS/Geo2.0</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise GIS/Geo2.0</label>
+    </customValue>
+    <customValue>
+        <fullName>GeoSpatialSolution</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GeoSpatialSolution</label>
+    </customValue>
+    <customValue>
+        <fullName>CyberSERVE</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>CyberSERVE</label>
+    </customValue>
+    <customValue>
+        <fullName>GeoCivic- EconDev</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GeoCivic- EconDev</label>
+    </customValue>
+    <customValue>
+        <fullName>GeoCivic- India</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GeoCivic- India</label>
+    </customValue>
+    <customValue>
+        <fullName>GeoServe</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GeoServe</label>
+    </customValue>
+    <customValue>
+        <fullName>Sitecore</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Sitecore</label>
+    </customValue>
+    <customValue>
+        <fullName>Osisoft</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Osisoft</label>
+    </customValue>
+    <customValue>
+        <fullName>GeoCivic- India;GeoCivic- India</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GeoCivic- India;GeoCivic- India</label>
+    </customValue>
+    <customValue>
+        <fullName>CyberSupport</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>AMO- CyberSupport</label>
+    </customValue>
+    <masterLabel>CyberTech Sol</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

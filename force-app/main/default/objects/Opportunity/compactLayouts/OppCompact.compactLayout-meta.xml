@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OppCompact</fullName>
+    <fields>Name</fields>
+    <fields>AccountId</fields>
+    <fields>CyberTech_Solution__c</fields>
+    <fields>OwnerId</fields>
+    <fields>CloseDate</fields>
+    <label>OppCompact</label>
+</CompactLayout>

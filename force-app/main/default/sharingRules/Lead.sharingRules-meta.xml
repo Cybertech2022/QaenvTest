@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>John_to_Lori</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>To share John&apos;s Leads to Lori
+1) Lead Owner = John
+2) Lead Owner = Spatialitics AND Lead Source = ZOOMINFO
+
+Request from Lori and Dipankar</description>
+        <label>John to Lori</label>
+        <sharedTo>
+            <group>Inside_Sales</group>
+        </sharedTo>
+        <booleanFilter>1 OR (2 AND 3)</booleanFilter>
+        <criteriaItems>
+            <field>OwnerId</field>
+            <operation>equals</operation>
+            <value>005j000000C9Gd4</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>OwnerId</field>
+            <operation>equals</operation>
+            <value>0050a00000JgATR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>LeadSource</field>
+            <operation>equals</operation>
+            <value>ZoomInfo</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

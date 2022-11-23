@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Customer</fullName>
+        <default>false</default>
+        <label>Customer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SAP Representative</fullName>
+        <default>false</default>
+        <label>SAP Representative</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Esri Representative</fullName>
+        <default>false</default>
+        <label>Esri Representative</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Microsoft Representative</fullName>
+        <default>false</default>
+        <label>Microsoft Representative</label>
+    </standardValue>
+</StandardValueSet>

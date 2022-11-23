@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>US Opportunities</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Name</fieldNames>
+        <fieldNames>CyberTech_Solution__c</fieldNames>
+        <fieldNames>Amount</fieldNames>
+        <fieldNames>CloseDate</fieldNames>
+        <picklistValueName>Closed Lost</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Name</fieldNames>
+        <fieldNames>Description</fieldNames>
+        <fieldNames>Sales_Support__c</fieldNames>
+        <fieldNames>Amount</fieldNames>
+        <fieldNames>CloseDate</fieldNames>
+        <info>&lt;p&gt;&lt;span style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt;After determining that the prospect has interest in the products or services, the sales representative now uncovers the prospect&amp;#39;s business problems. The sales representative now maps the company&amp;#39;s products and/or services to the prospect&amp;#39;s business problems and describes the value of CyberTech Platform or solution. Sales Support is involved and agree to discovery steps with client.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;u style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt;Action Required&lt;/u&gt;&lt;span style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt; - &lt;/span&gt;&lt;b style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt;Ensure Sales Support is identified and updated here&lt;/b&gt;&lt;span style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Discovery with SE</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Name</fieldNames>
+        <fieldNames>Sales_Support__c</fieldNames>
+        <fieldNames>Amount</fieldNames>
+        <fieldNames>CloseDate</fieldNames>
+        <info>&lt;p&gt;&lt;span style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt;After determining that there is a match between the prospect&amp;#39;s business problems and the company&amp;#39;s products and/or services, the sales representative now identifies the decision makers necessary to close this opportunity.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;u style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt;Action Required&lt;/u&gt;&lt;span style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt; - &lt;/span&gt;&lt;b style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt;Add right contacts in &amp;#39;Contact Roles&amp;#39; related list&lt;/b&gt;&lt;/p&gt;</info>
+        <picklistValueName>Go/No-Go</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Name</fieldNames>
+        <fieldNames>Sales_Support__c</fieldNames>
+        <fieldNames>Amount</fieldNames>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt;The sales representative reviews and negotiates the proposal with the prospect. The sales rep modifies the proposal 1-n times as needed&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;u style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt;Action Required&lt;/u&gt;&lt;span style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt; - &lt;/span&gt;&lt;b style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt;Upload latest proposal. Update the amount as per the proposal&lt;/b&gt;&lt;/p&gt;</info>
+        <picklistValueName>Negotiation / Review</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Name</fieldNames>
+        <fieldNames>CyberTech_Solution__c</fieldNames>
+        <fieldNames>Amount</fieldNames>
+        <fieldNames>CloseDate</fieldNames>
+        <info>&lt;p&gt;&lt;u style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt;Action Required&lt;/u&gt;&lt;span style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt; - &lt;/span&gt;&lt;b style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt;Add tasks and reminders to trigger the discussions again&lt;/b&gt;&lt;/p&gt;</info>
+        <picklistValueName>On Hold</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Name</fieldNames>
+        <fieldNames>CyberTech_Solution__c</fieldNames>
+        <fieldNames>Sales_Support__c</fieldNames>
+        <fieldNames>Amount</fieldNames>
+        <info>&lt;p&gt;&lt;span style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt;The sales representative delivers the proposal, or sometimes called the price quote, to the prospect. Sales Support reviews the quote with client. Client feedback is solicited on pricing pre submittal if possible&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;u style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt;Action Required&lt;/u&gt;&lt;span style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt; - &lt;/span&gt;&lt;b style=&quot;font-family: Calibri; font-size: 13pt;&quot;&gt;Upload the proposal document in &amp;#39;Notes and Attachments&amp;#39; section&lt;/b&gt;&lt;/p&gt;</info>
+        <picklistValueName>Price Quote</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Name</fieldNames>
+        <fieldNames>Description</fieldNames>
+        <fieldNames>CyberTech_Solution__c</fieldNames>
+        <fieldNames>Type</fieldNames>
+        <fieldNames>Amount</fieldNames>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt;This is the first stage in the sales process and indicates that the opportunity with this prospect is new.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;u style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt;Action Required&lt;/u&gt;&lt;span style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt; - &lt;/span&gt;&lt;b style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt;Needs to be qualified&lt;i&gt;&lt;u&gt; &lt;/u&gt;&lt;/i&gt;by a sales representative&lt;/b&gt;&lt;/p&gt;</info>
+        <picklistValueName>Prospecting</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Name</fieldNames>
+        <fieldNames>Description</fieldNames>
+        <fieldNames>CyberTech_Solution__c</fieldNames>
+        <fieldNames>Alliance_Partner__c</fieldNames>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt;The sales rep is currently interacting with the prospect to determine if a sales opportunity exists for CyberTech.&lt;/span&gt;&lt;u style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt; &lt;/u&gt;&lt;span style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt;The sales rep is connecting with CyberTech Alliance Partners (SAP, Esri or Microsoft) to qualify and get intelligence.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;u style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt;Action Required&lt;/u&gt;&lt;span style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt; - &lt;/span&gt;&lt;b style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt;Update Alliance Partner&lt;/b&gt;&lt;/p&gt;</info>
+        <picklistValueName>Qualification</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Name</fieldNames>
+        <fieldNames>CyberTech_Solution__c</fieldNames>
+        <fieldNames>Amount</fieldNames>
+        <fieldNames>CloseDate</fieldNames>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt;The sales representative along with Sales Support analyzes the prospect&amp;#39;s perceived value of the company&amp;#39;s solution at this stage and&lt;/span&gt;&lt;i style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt; &lt;/i&gt;&lt;span style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt;prepares the appropriate combination of products and services for the sales quote.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;u style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt;Action Required&lt;/u&gt;&lt;span style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt; - &lt;/span&gt;&lt;b style=&quot;font-size: 13pt; font-family: Calibri;&quot;&gt;Add the presentations, etc. to &amp;#39;Notes and Attachments&amp;#39; section. Adjust the Amount field, if required&lt;/b&gt;&lt;/p&gt;</info>
+        <picklistValueName>Tailor Solution</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <assignments>
+        <description>This will fetch Account ID and Contact ID from Topic Assigned records</description>
+        <name>Account_from_Topic_Assignment</name>
+        <label>Account from Topic Assignment</label>
+        <locationX>489</locationX>
+        <locationY>133</locationY>
+        <assignmentItems>
+            <assignToReference>AccountTA</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ContactIDTemp</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Record_from_TA</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign TA to Contacts</description>
+        <name>Assign_TA_to_Contacts</name>
+        <label>Assign TA to Contacts</label>
+        <locationX>634</locationX>
+        <locationY>505</locationY>
+        <assignmentItems>
+            <assignToReference>TopicIDTemp</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_on_TA.TopicId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Topic_to_Contacts</targetReference>
+        </connector>
+    </assignments>
+    <description>Assign TP on Contact creation</description>
+    <interviewLabel>Assign TP on Contact creation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Assign TP on Contact creation</label>
+    <loops>
+        <description>Loop on TA</description>
+        <name>Loop_on_TA</name>
+        <label>Loop on TA</label>
+        <locationX>773</locationX>
+        <locationY>297</locationY>
+        <collectionReference>TopicAssignmentVariable</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_TA_to_Contacts</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Assign Topic to Contacts</description>
+        <name>Assign_Topic_to_Contacts</name>
+        <label>Assign Topic to Contacts</label>
+        <locationX>317</locationX>
+        <locationY>417</locationY>
+        <connector>
+            <targetReference>Loop_on_TA</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>EntityId</field>
+            <value>
+                <elementReference>ContactIDTemp</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TopicId</field>
+            <value>
+                <elementReference>TopicIDTemp</elementReference>
+            </value>
+        </inputAssignments>
+        <object>TopicAssignment</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <description>this will fetch topic assignment records</description>
+        <name>Get_Record_from_TA</name>
+        <label>Get TA from Account</label>
+        <locationX>741</locationX>
+        <locationY>145</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_on_TA</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>EntityId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>AccountTA</elementReference>
+            </value>
+        </filters>
+        <object>TopicAssignment</object>
+        <outputReference>TopicAssignmentVariable</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>TopicId</queriedFields>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Account_from_Topic_Assignment</targetReference>
+        </connector>
+        <object>Contact</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Store Account ID</description>
+        <name>AccountTA</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Contact ID from Loop</description>
+        <name>ContactIDfromLoop</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Contact ID Temp</description>
+        <name>ContactIDTemp</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>TopicAssignment</description>
+        <name>TopicAssignment</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>TopicAssignmentVariable</description>
+        <name>TopicAssignmentVariable</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>TopicAssignment</objectType>
+    </variables>
+    <variables>
+        <description>Store Contact ID</description>
+        <name>TopicIDfromTA</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Topic ID Temp variable</description>
+        <name>TopicIDTemp</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>TPVariable</description>
+        <name>TPVariable</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>TopicAssignment</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <description>TPVariable</description>
+        <name>TPVariables</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>TopicAssignment</objectType>
+    </variables>
+</Flow>
