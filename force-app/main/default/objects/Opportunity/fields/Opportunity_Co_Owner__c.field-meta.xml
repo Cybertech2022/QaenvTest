@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Co_Owner__c</fullName>
+    <description>This field will be used by India sales team to Identify the opportunity owner</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will be used by India sales team to Identify the opportunity owner</inlineHelpText>
+    <label>Opportunity Co-Owner</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Gaurav Malviya</fullName>
+                <default>false</default>
+                <label>Gaurav Malviya</label>
+            </value>
+            <value>
+                <fullName>Vince	Rosales</fullName>
+                <default>false</default>
+                <label>Vince	Rosales</label>
+            </value>
+            <value>
+                <fullName>Vishal	Bargat</fullName>
+                <default>false</default>
+                <label>Vishal	Bargat</label>
+            </value>
+            <value>
+                <fullName>Vish	Tadimety</fullName>
+                <default>false</default>
+                <label>Vish	Tadimety</label>
+            </value>
+            <value>
+                <fullName>John	Tkach</fullName>
+                <default>false</default>
+                <label>John	Tkach</label>
+            </value>
+            <value>
+                <fullName>Lori	Kurovski</fullName>
+                <default>false</default>
+                <label>Lori	Kurovski</label>
+            </value>
+            <value>
+                <fullName>Jim	Harrity</fullName>
+                <default>false</default>
+                <label>Jim	Harrity</label>
+            </value>
+            <value>
+                <fullName>Ravi	Joshi</fullName>
+                <default>false</default>
+                <label>Ravi	Joshi</label>
+            </value>
+            <value>
+                <fullName>Steven	Jeske</fullName>
+                <default>false</default>
+                <label>Steven	Jeske</label>
+            </value>
+            <value>
+                <fullName>Parag	Bhalerao</fullName>
+                <default>false</default>
+                <label>Parag	Bhalerao</label>
+            </value>
+            <value>
+                <fullName>Raman	Subramanian</fullName>
+                <default>false</default>
+                <label>Raman	Subramanian</label>
+            </value>
+            <value>
+                <fullName>Shikha	Sharma</fullName>
+                <default>false</default>
+                <label>Shikha	Sharma</label>
+            </value>
+            <value>
+                <fullName>Swami	Ramamurthi</fullName>
+                <default>false</default>
+                <label>Swami	Ramamurthi</label>
+            </value>
+            <value>
+                <fullName>Sagar	Nair</fullName>
+                <default>false</default>
+                <label>Sagar	Nair</label>
+            </value>
+            <value>
+                <fullName>Beau	Bradley</fullName>
+                <default>false</default>
+                <label>Beau	Bradley</label>
+            </value>
+            <value>
+                <fullName>Bipin	Tavkar</fullName>
+                <default>false</default>
+                <label>Bipin	Tavkar</label>
+            </value>
+            <value>
+                <fullName>Nicholas	Poorte</fullName>
+                <default>false</default>
+                <label>Nicholas	Poorte</label>
+            </value>
+            <value>
+                <fullName>Arun	T.P</fullName>
+                <default>false</default>
+                <label>Arun	T.P</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

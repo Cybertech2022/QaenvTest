@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Advertisement</fullName>
+        <default>false</default>
+        <label>Advertisement</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Website</fullName>
+        <default>false</default>
+        <label>Website</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cold Calling by Sales Executive</fullName>
+        <default>false</default>
+        <label>Cold Calling</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Employee Referral</fullName>
+        <default>false</default>
+        <label>Employee Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Client Reference</fullName>
+        <default>false</default>
+        <label>Client Reference</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner</fullName>
+        <default>false</default>
+        <label>Partner Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SAP Rep</fullName>
+        <default>false</default>
+        <label>SAP Rep</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Esri_Reps</fullName>
+        <default>false</default>
+        <label>Esri Reps</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Trade Show</fullName>
+        <default>false</default>
+        <label>Trade Show</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Webinar</fullName>
+        <default>false</default>
+        <label>Webinar</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>ZoomInfo</fullName>
+        <default>false</default>
+        <label>ZoomInfo</label>
+    </standardValue>
+</StandardValueSet>

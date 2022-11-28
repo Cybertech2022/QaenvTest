@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_status_Drop</fullName>
+    <active>true</active>
+    <errorConditionFormula>TEXT(Status) = &quot;Unqualified&quot;
+&amp;&amp;
+TEXT(Reason_for_Drop__c) = &quot;&quot;</errorConditionFormula>
+    <errorDisplayField>Reason_for_Drop__c</errorDisplayField>
+    <errorMessage>Please Select Reason for Drop.</errorMessage>
+</ValidationRule>

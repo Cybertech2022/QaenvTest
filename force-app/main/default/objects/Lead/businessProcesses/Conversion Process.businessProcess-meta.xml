@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conversion Process</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Convert</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Cooling</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Drop</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>New Prospect %2F Inquiry</fullName>
+        <default>true</default>
+    </values>
+    <values>
+        <fullName>Nurture</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Qualifying Call Scheduled</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

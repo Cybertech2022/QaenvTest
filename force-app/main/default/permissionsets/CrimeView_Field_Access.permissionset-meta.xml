@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Provides access to &apos;CrimeView User&apos; field in Account object</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.CrimeView_User__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>CrimeView Field Access</label>
+    <license>Salesforce</license>
+</PermissionSet>

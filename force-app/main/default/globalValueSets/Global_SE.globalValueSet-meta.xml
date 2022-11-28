@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>0050a00000HGSA1</fullName>
+        <default>false</default>
+        <label>0050a00000HGSA1</label>
+    </customValue>
+    <customValue>
+        <fullName>0050a00000JgATR</fullName>
+        <default>false</default>
+        <label>0050a00000JgATR</label>
+    </customValue>
+    <description>Global Solution Engineer</description>
+    <masterLabel>Global SE</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,227 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="accountPlanController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="accountName" type="String" />
+    <aura:attribute name="accountPlanName" type="String" />    
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+   
+
+    <aura:attribute name="Editfield" type="String"/>
+    <aura:attribute name="Editfield1" type="String"/>
+    <aura:attribute name="Editfield2" type="String"/>
+    <aura:attribute name="Editfield3" type="String"/>
+    <aura:attribute name="Editfield4" type="String"/>
+    <aura:attribute name="Editfield5" type="String"/>
+    <aura:attribute name="Editfield6" type="String"/>
+    <aura:attribute name="Editfield7" type="String"/>
+    <aura:attribute name="Editfield8" type="String"/>
+    <aura:attribute name="Editfield9" type="String"/>
+
+
+    <aura:attribute name="FieldEdit" type="String" default=""/>
+    <aura:attribute name="FieldEdit1" type="String" default=""/>
+    <aura:attribute name="FieldEdit2" type="String" default=""/>
+    <aura:attribute name="FieldEdit3" type="String" default=""/>
+    <aura:attribute name="FieldEdit4" type="String" default=""/>
+    <aura:attribute name="FieldEdit5" type="String" default=""/>
+    <aura:attribute name="FieldEdit6" type="String" default=""/>
+    <aura:attribute name="FieldEdit7" type="String" default=""/>
+    <aura:attribute name="FieldEdit8" type="String" default=""/>
+    <aura:attribute name="FieldEdit9" type="String" default=""/>
+
+
+
+
+
+
+
+
+
+
+
+
+     <div class="slds-m-vertical_xx-small">
+        <lightning:button class="slds-align_absolute-center" aura:id="createNewPlan" label="Create New Plan" onclick="{! c.handleCreateNewPlanClick }" />
+    </div>
+
+    <div aura:id="editAccountPlanForm" class="slds-form">
+        <div class="slds-p-around_medium">
+            <!--Information Header-->
+            <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder">
+                <span class="section-header-title slds-p-horizontal--small slds-truncate">Information</span>
+            </h3>
+
+            <!--Information Section-->
+            <div class="slds-form-element slds-m-vertical_xx-small">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2 slds-m-vertical_xx-small">
+                        <lightning:input aura:id="accountPlanNameEditInputId" type="text"  disabled="true" required="true" label="Account Plan Name" />
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-m-vertical_xx-small">
+                        <lightning:input aura:id="accountNameEditInputId" type="text" disabled="true" label="Account Name" />
+                    </div>
+                </div>
+                    
+                 <div class="row slds-grid slds-gutters">
+                    <div class="slds-col slds-m-vertical_xx-small">
+                        <lightning:textarea aura:id="ourBusinessGoalsProjectsEditInputId" class="height" value="{!v.Editfield}" onkeyup="{!c.handleKeyup}" type="text" label="Our Business Goals and Projects We Want to Win (Max 1000 Characters)" />
+                       
+                        <span class="floatToRight" >{!v.FieldEdit}</span>
+                    </div>                    
+                </div>
+                
+                <div class="row slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2 slds-m-vertical_xx-small">
+                        <lightning:input aura:id="potentialRevenueEditInputId" type="number" label="Company Revenue" formatter="currency" />
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-m-vertical_xx-small">
+                        <lightning:input aura:id="ourRevenueTargetsEditInputId" type="number" formatter="currency"  label="Our Revenue Targets" />
+                    </div>
+                </div>
+              
+                
+                <div class="row slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2 slds-m-vertical_xx-small">
+                        <lightning:textarea aura:id="clientOrganizationTowersEditInputId" type="text" value="{!v.Editfield1}" onkeyup="{!c.handleKeyup1}"  label="Client Business Towers (Max 1000 Characters)" />
+                        <span class="floatToRight">{!v.FieldEdit1}</span>
+
+                    </div>
+                   <div class="slds-col slds-size_1-of-2 slds-m-vertical_xx-small">
+                       <lightning:textarea aura:id="clientITLandscapeEditInputId" type="text" value="{!v.Editfield2}" onkeyup="{!c.handleKeyup2}" label="Client Level 1 IT System (Max 1000 Characters)"/>
+                       <span class="floatToRight">{!v.FieldEdit2} </span>
+
+
+                    </div> 
+                </div>
+                
+                <div class="row slds-grid slds-gutters">
+                    <div class="slds-col slds-m-vertical_xx-small">
+                        <lightning:textarea aura:id="keyBusinessPrioritiesEditInputId" type="text" value="{!v.Editfield3}" onkeyup="{!c.handleKeyup3}"  label="Key Business Priorities (Max 1000 Characters)" />
+                       <span class="floatToRight">{!v.FieldEdit3}</span>
+
+                    </div>                    
+                </div>
+
+        
+                
+                <div class="row slds-grid slds-gutters">
+                    <div class="slds-col slds-m-vertical_xx-small">
+                        <lightning:textarea aura:id="majorEventsEditInputId" type="text" value="{!v.Editfield4}" onkeyup="{!c.handleKeyup4}"  label="Major Events to Attend with Client (Max 1000 Characters)" />
+                       <span class="floatToRight">{!v.FieldEdit4}</span>
+
+                    </div>
+                </div>
+            </div>
+
+
+            </div>
+
+            <!--System Infomation-->
+            <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder">
+                <span class="section-header-title slds-p-horizontal--small slds-truncate">System Information</span>
+            </h3>
+            <!--System Infomation-->
+            <div class="slds-form-element slds-m-vertical_xx-small">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2 slds-m-vertical_xx-small">
+                        <lightning:input aura:id="createdbyEditInputId" disabled="true" type="text" label="Created by" />
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-m-vertical_xx-small">
+                        <lightning:input aura:id="lastModifiedEditInputId" disabled="true" type="text" label="Last Modified by" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <lightning:button class="slds-align_absolute-center" variant="brand" aura:id="editPlan" label="Save" onclick="{! c.handleEditClick }" />
+        </div>
+
+    <!--Modal Popup Create New Plan-->
+    <div class="slds-align_absolute-center">
+        <aura:if isTrue="{!v.isModalOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close" alternativeText="close" variant="bare-inverse" class="slds-modal__close" onclick="{! c.handleCloseModalClick }" />
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Create New Plan</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <!--Information Header-->
+                        <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                            <span class="test-id__section-header-title section-header-title slds-p-horizontal--small slds-truncate">Information</span>
+                        </h3>
+
+                        <!--Information Section-->
+                        <div class="slds-form-element slds-m-vertical_xx-small">
+                            <div class="slds-grid slds-gutters slds-m-horizontal_large">
+                                <div class="slds-col slds-size_1-of-2 slds-m-vertical_xx-small">
+                                    <lightning:input aura:id="accountPlanNameInputId" value="{!v.accountPlanName }" type="text" disabled="true" label="Account Plan Name" />
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 slds-m-vertical_xx-small">
+                                    <lightning:input aura:id="accountNameInputId" value="{! v.accountName }" type="text" disabled="true" label="Account Name" />
+                                </div>
+                            </div>
+                         
+                            <div class="row slds-grid slds-gutters slds-m-horizontal_large">
+                                <div class="slds-col slds-m-vertical_xx-small">
+                                    <lightning:textarea aura:id="ourBusinessGoalsProjectsInputId" type="text" class="height" value="{!v.Editfield5}" onkeyup="{!c.handleKeyup5}" label="Our Business Goals and Projects We Want to Win (Max 1000 Characters)" />
+                                  
+                                    <span class="floatToRight">{!v.FieldEdit5} </span>
+                                </div>                                
+                            </div>
+
+                            <div class="row slds-grid slds-gutters slds-m-horizontal_large">
+                                <div class="slds-col slds-size_1-of-2 slds-m-vertical_xx-small">
+                                    <lightning:input aura:id="potentialRevenueInputId" type="number" label="Company Revenue" formatter="currency" step="0.01" />
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 slds-m-vertical_xx-small">
+                                    <lightning:input aura:id="ourRevenueTargetsInputId" type="number" formatter="currency" step="0.01" label="Our Revenue Targets" />
+                                </div>
+                            </div>
+
+                            
+                                <div class="row slds-grid slds-gutters slds-m-horizontal_large">
+                                <div class="slds-col slds-size_1-of-2 slds-m-vertical_xx-small">
+                                    <lightning:textarea aura:id="clientOrganizationTowersInputId" type="text" value="{!v.Editfield6}" onkeyup="{!c.handleKeyup6}"  label="Client Business Towers (Max 1000 Characters)" />
+                                    <span class="floatToRight">{!v.FieldEdit6}</span>
+
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 slds-m-vertical_xx-small">
+                                    <lightning:textarea aura:id="clientITLandscapeInputId" type="text" value="{!v.Editfield7}" onkeyup="{!c.handleKeyup7}"  label="Client Level 1 IT System (Max 1000 Characters)"/>
+                                   <span class="floatToRight">{!v.FieldEdit7}</span>
+
+                                </div>
+                            </div>    
+                            
+                            
+                            <div class="row slds-grid slds-gutters slds-m-horizontal_large">
+                                <div class="slds-col slds-m-vertical_xx-small">
+                                    <lightning:textarea aura:id="keyBusinessPrioritiesInputId" type="text" value="{!v.Editfield8}" onkeyup="{!c.handleKeyup8}"  label="Key Business Priorities (Max 1000 Characters)" />
+                                   <span class="floatToRight">{!v.FieldEdit8} </span>
+
+                                </div>                                
+                            </div>
+
+                
+                            <div class="row slds-grid slds-gutters slds-m-horizontal_large">
+                                <div class="slds-col slds-m-vertical_xx-small">
+                                    <lightning:textarea aura:id="majorEventsInputId" type="text" value="{!v.Editfield9}" onkeyup="{!c.handleKeyup9}"  label="Major Events to Attend with Client (Max 1000 Characters)" />
+                                   <span class="floatToRight">{!v.FieldEdit9}</span>
+
+                                </div>
+                            </div>
+                        </div>
+
+                       
+                    </div>
+
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral" label="Cancel" onclick="{! c.handleCloseModalClick }" />
+                        <lightning:button variant="brand" label="Save" onclick="{!c.handleAddPlanClick}" />
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <assignments>
+        <description>Topic ID from Lead</description>
+        <name>Topic_ID_from_Lead</name>
+        <label>Topic ID from Lead</label>
+        <locationX>845</locationX>
+        <locationY>124</locationY>
+        <assignmentItems>
+            <assignToReference>TopicID</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_for_Topic_assignment.TopicId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Contact_Topic_assignment</targetReference>
+        </connector>
+    </assignments>
+    <description>Transfer of Topics from Lead to converted contact</description>
+    <interviewLabel>Topic transfer from Lead to Contact {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Topic transfer from Lead to Contact v0 6</label>
+    <loops>
+        <description>Loop for topic assignment from Lead</description>
+        <name>Loop_for_Topic_assignment</name>
+        <label>Loop for Topic assignment</label>
+        <locationX>589</locationX>
+        <locationY>87</locationY>
+        <collectionReference>TopicsfromLead</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Topic_ID_from_Lead</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Topic assignment record for Account</description>
+        <name>Account_TA</name>
+        <label>Account TA</label>
+        <locationX>536</locationX>
+        <locationY>299</locationY>
+        <connector>
+            <targetReference>Loop_for_Topic_assignment</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>EntityId</field>
+            <value>
+                <elementReference>$Record.ConvertedAccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TopicId</field>
+            <value>
+                <elementReference>TopicID</elementReference>
+            </value>
+        </inputAssignments>
+        <object>TopicAssignment</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <description>Topic assignment records of new contact</description>
+        <name>Contact_Topic_assignment</name>
+        <label>Contact Topic assignment</label>
+        <locationX>712</locationX>
+        <locationY>346</locationY>
+        <connector>
+            <targetReference>Account_TA</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>EntityId</field>
+            <value>
+                <elementReference>$Record.ConvertedContactId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TopicId</field>
+            <value>
+                <elementReference>TopicID</elementReference>
+            </value>
+        </inputAssignments>
+        <object>TopicAssignment</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <description>Lead topic assignment values</description>
+        <name>Lead_Topic_assignment</name>
+        <label>Lead Topic assignment</label>
+        <locationX>449</locationX>
+        <locationY>86</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_for_Topic_assignment</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>EntityId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <object>TopicAssignment</object>
+        <outputReference>TopicsfromLead</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>TopicId</queriedFields>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Lead_Topic_assignment</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsConverted</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Lead</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Converted contact id</description>
+        <name>ContactID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Lead Id from record</description>
+        <name>LeadID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Topic ID from Lead</description>
+        <name>TopicID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Topics collected from Lead</description>
+        <name>TopicsfromLead</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>TopicAssignment</objectType>
+    </variables>
+</Flow>

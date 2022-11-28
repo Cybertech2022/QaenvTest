@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <assignments>
+        <description>new account id assignment</description>
+        <name>Assign_Account_Id</name>
+        <label>Assign Account Id</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <assignmentItems>
+            <assignToReference>newaccountid</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>GlobalSE</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>User ID for SE</description>
+        <name>SeUserId</name>
+        <label>SeUserId</label>
+        <locationX>264</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>SE_ID</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Picklist_loop.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Account_Team_creation</targetReference>
+        </connector>
+    </assignments>
+    <description>Global SE assginments to account team whenever a new account creates</description>
+    <interviewLabel>Account Team Global SE {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account Team Global SE</label>
+    <loops>
+        <description>Loop for Global SE values</description>
+        <name>Picklist_loop</name>
+        <label>Picklist loop</label>
+        <locationX>176</locationX>
+        <locationY>575</locationY>
+        <collectionReference>GlobalSE</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>SeUserId</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Create Account team</description>
+        <name>Account_Team_creation</name>
+        <label>Account Team creation</label>
+        <locationX>264</locationX>
+        <locationY>815</locationY>
+        <connector>
+            <targetReference>Picklist_loop</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>AccountAccessLevel</field>
+            <value>
+                <stringValue>Edit</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>newaccountid</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ContactAccessLevel</field>
+            <value>
+                <stringValue>Edit</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OpportunityAccessLevel</field>
+            <value>
+                <stringValue>Edit</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TeamMemberRole</field>
+            <value>
+                <stringValue>Solution Engineer</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>UserId</field>
+            <value>
+                <elementReference>SE_ID</elementReference>
+            </value>
+        </inputAssignments>
+        <object>AccountTeamMember</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <description>Global Picklist</description>
+        <name>GlobalSE</name>
+        <label>GlobalSE</label>
+        <locationX>176</locationX>
+        <locationY>455</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Picklist_loop</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsGlobalSE__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>User</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_Account_Id</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>new account id</description>
+        <name>newaccountid</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>SE user id from picklist</description>
+        <name>SE_ID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

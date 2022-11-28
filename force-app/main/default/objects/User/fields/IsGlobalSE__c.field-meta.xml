@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsGlobalSE__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Tells if Solution Engineer can have access to all the Account Team</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check if you want user to be added to all the new accounts</inlineHelpText>
+    <label>IsGlobalSE</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>dbschdlr__Meeting_Host__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Meeting host of the appointment that is scheduled using the Appointment Scheduler App.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>To select a meeting host, click on one of the Required Resources on the Appointment Scheduler App UI.</inlineHelpText>
+    <label>Meeting Host</label>
+    <length>50</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

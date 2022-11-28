@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CyberTech_Solution__c</fullName>
+    <description>Select appropriate product or service related to this opportunity</description>
+    <externalId>false</externalId>
+    <label>CyberTech Solution</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Cybertech_Solution</valueSetName>
+    </valueSet>
+</CustomField>

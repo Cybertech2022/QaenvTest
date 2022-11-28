@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phone_Number__c</fullName>
+    <description>Phone Number of the Contact/Lead</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Phone Number of the Contact/Lead</inlineHelpText>
+    <label>Phone Number</label>
+    <required>false</required>
+    <type>Phone</type>
+</CustomField>

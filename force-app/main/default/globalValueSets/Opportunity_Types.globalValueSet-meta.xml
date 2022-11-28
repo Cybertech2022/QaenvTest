@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>SAP Business Suite S/4HANA</fullName>
+        <default>false</default>
+        <label>SAP S/4HANA Business Suite and Cloud Move</label>
+    </customValue>
+    <customValue>
+        <fullName>SAP Cloud Migration</fullName>
+        <default>false</default>
+        <label>SAP BTP (Business Technology Platform), HANA, SCP</label>
+    </customValue>
+    <customValue>
+        <fullName>SAP Analytics</fullName>
+        <default>false</default>
+        <label>SAP Analytics</label>
+    </customValue>
+    <customValue>
+        <fullName>GeoSpatial Projects</fullName>
+        <default>false</default>
+        <label>All GeoSpatial Projects</label>
+    </customValue>
+    <customValue>
+        <fullName>Managed GeoSpatial Cloud</fullName>
+        <default>false</default>
+        <label>Managed ArcGIS Cloud Services (MACS)</label>
+    </customValue>
+    <customValue>
+        <fullName>AMO – CyberSupport</fullName>
+        <default>false</default>
+        <label>DevSecOps (Custom Apps, CyberSupport, AMO)</label>
+    </customValue>
+    <customValue>
+        <fullName>Infra</fullName>
+        <default>false</default>
+        <label>IT Infrastructure</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce.com</fullName>
+        <default>false</default>
+        <label>Salesforce</label>
+    </customValue>
+    <customValue>
+        <fullName>GeoShield</fullName>
+        <default>false</default>
+        <label>GeoShield</label>
+    </customValue>
+    <customValue>
+        <fullName>Spatialitics Health</fullName>
+        <default>false</default>
+        <label>Spatialitics Health</label>
+    </customValue>
+    <customValue>
+        <fullName>Spatialitics Utilities</fullName>
+        <default>false</default>
+        <label>Spatialitics Utilities</label>
+    </customValue>
+    <customValue>
+        <fullName>Risk Center</fullName>
+        <default>false</default>
+        <label>Risk Center</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <description>CyberTech opportunity types</description>
+    <masterLabel>Opportunity Types</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <assignments>
+        <description>This will fetch account id from topic assignment records</description>
+        <name>Account_from_topic_assignment</name>
+        <label>Account from topic assignment</label>
+        <locationX>706</locationX>
+        <locationY>212</locationY>
+        <assignmentItems>
+            <assignToReference>AccountTA</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.EntityId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TopicIDfromTA</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.TopicId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Contacts_from_TA_account</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>this will assign the Contact id value from the loop record</description>
+        <name>Contact_ID_from_Loop</name>
+        <label>Contact ID from Loop</label>
+        <locationX>1085</locationX>
+        <locationY>466</locationY>
+        <assignmentItems>
+            <assignToReference>ContactIDTA</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_On_Contacts.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Topic_to_Contact</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Account_Decision</name>
+        <label>Account Decision</label>
+        <locationX>492</locationX>
+        <locationY>187</locationY>
+        <defaultConnectorLabel>Break the flow</defaultConnectorLabel>
+        <rules>
+            <name>Topic_Account_Decision</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.EntityType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Account</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Account_from_topic_assignment</targetReference>
+            </connector>
+            <label>Topic Account Decision</label>
+        </rules>
+    </decisions>
+    <description>This Flow will carry the Topics From Account</description>
+    <interviewLabel>Topic transfer from Account to Contact {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Topic transfer from Account to Contact</label>
+    <loops>
+        <description>This will run the loop on Contacts fetched from TA Account</description>
+        <name>Loop_On_Contacts</name>
+        <label>Loop On Contacts</label>
+        <locationX>1076</locationX>
+        <locationY>238</locationY>
+        <collectionReference>ContactsfromTAaccount</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Contact_ID_from_Loop</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>This will create a Topic Assignment record to assign Topic on Contact record</description>
+        <name>Assign_Topic_to_Contact</name>
+        <label>Assign Topic to Contact</label>
+        <locationX>845</locationX>
+        <locationY>483</locationY>
+        <connector>
+            <targetReference>Loop_On_Contacts</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>EntityId</field>
+            <value>
+                <elementReference>ContactIDTA</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TopicId</field>
+            <value>
+                <elementReference>TopicIDfromTA</elementReference>
+            </value>
+        </inputAssignments>
+        <object>TopicAssignment</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <description>this will fetch from contacts from topic assignment entity = Account</description>
+        <name>Contacts_from_TA_account</name>
+        <label>Contacts from TA account</label>
+        <locationX>904</locationX>
+        <locationY>151</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_On_Contacts</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>AccountTA</elementReference>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <outputReference>ContactsfromTAaccount</outputReference>
+        <queriedFields>Id</queriedFields>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>47</locationY>
+        <connector>
+            <targetReference>Account_Decision</targetReference>
+        </connector>
+        <object>TopicAssignment</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>This will store account id from topic assignment record</description>
+        <name>AccountTA</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>This will store Contact ID value from the loop</description>
+        <name>ContactIDTA</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>this will store contacts from TA account</description>
+        <name>ContactsfromTAaccount</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <description>This will store Topic id from Topic Assignment record</description>
+        <name>TopicIDfromTA</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>
